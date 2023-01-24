@@ -1,13 +1,32 @@
 import java.time.LocalDateTime;
 
-public class Task {
+public class Task extends TaskService{
+    public enum Type{
+        WORK(" рабочие задачи "),
+        PERSONAL(" личные задачи ");
+        private final String type;
+        Type(String type) {
+            this.type = type;
+        }
+        public String getType() {
+            return type;
+        }
+        @Override
+        public String toString() {
+            return "Type{" +
+                    "type='" + type + '\'' +
+                    '}';
+        }
+    }
     private int idGenerator;
     private String title;
-    private String type;
+    private Type type;
     private int id;
     private LocalDateTime dateTime;
     private String description;
-    public Task(int idGenerator, String title, String type, int id, LocalDateTime dateTime, String description) {
+
+    public Task(int idGenerator, String title, Type type, int id, LocalDateTime dateTime, String description) {
+        super();
         this.idGenerator = idGenerator;
         this.title = title;
         this.type = type;
@@ -15,7 +34,6 @@ public class Task {
         this.dateTime = dateTime;
         this.description = description;
     }
-
     public int getIdGenerator() {
         return idGenerator;
     }
@@ -32,11 +50,11 @@ public class Task {
         this.title = title;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
@@ -64,15 +82,5 @@ public class Task {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "Task{" +
-                "idGenerator=" + idGenerator +
-                ", title='" + title + '\'' +
-                ", type='" + type + '\'' +
-                ", id=" + id +
-                ", dateTime=" + dateTime +
-                ", description='" + description + '\'' +
-                '}';
-    }
+
 }
