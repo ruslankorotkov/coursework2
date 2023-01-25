@@ -1,23 +1,9 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Task extends TaskService{
-    public enum Type{
-        WORK(" рабочие задачи "),
-        PERSONAL(" личные задачи ");
-        private final String type;
-        Type(String type) {
-            this.type = type;
-        }
-        public String getType() {
-            return type;
-        }
-        @Override
-        public String toString() {
-            return  type ;
-        }
-    }
-    private int idGenerator;
+public abstract class Task extends TaskService {
+    private int idGenerator = 0;
     private String title;
     private Type type;
     private int id;
@@ -37,15 +23,23 @@ public class Task extends TaskService{
         return Objects.hash(idGenerator, title, type, id, dateTime, description);
     }
 
-    public Task( String title, Type type, int id, LocalDateTime dateTime, String description) {
+    public Task(String title, Type type, int id, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
         super();
-        idGenerator ++;
-        this.title = title;
+        if (title == null || title.isEmpty() || title.isBlank()) {
+            throw new IncorrectArgumentException(" Значение задачи введено не коректно.");
+        } else {
+            this.title = title;
+        }
+        if (description == null || description.isEmpty() || description.isBlank()) {
+            this.description = " default ";
+        } else {
+            this.description = description;
+        }
         this.type = type;
         this.id = id;
         this.dateTime = dateTime;
-        this.description = description;
     }
+
     public String getTitle() {
         return title;
     }
@@ -74,14 +68,18 @@ public class Task extends TaskService{
         return description;
     }
 
+    public abstract boolean appearsln();
+
     @Override
     public String toString() {
-        return " Задача: " +
-                ", id: " + id +
-                ", тип: " + type +
-                ", загаловок: " + title +
-                ", время: " + dateTime +
-                ", описание: " + description;
+        return "Task{" +
+                "idGenerator=" + idGenerator +
+                ", title='" + title + '\'' +
+                ", type=" + type +
+                ", id=" + id +
+                ", dateTime=" + dateTime +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     public void setDescription(String description) {

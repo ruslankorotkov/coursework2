@@ -1,26 +1,15 @@
 import java.time.LocalDateTime;
 
-public class YearlyTask extends Task{
-    public boolean isAppearsln() {
-        return appearsln;
-    }
+public class YearlyTask extends Task {
 
-    public void setAppearsln(boolean appearsln) {
-        this.appearsln = appearsln;
+
+    public YearlyTask(String title, Type type, int id, LocalDateTime dateTime, String description) {
+        super(title, type, id, dateTime, description);
     }
 
     @Override
-    public String toString() {
-        return "YearlyTask{" +
-                "appearsln=" + appearsln +
-                '}';
+    public boolean appearsln() {
+        return false;
     }
-
-    public YearlyTask(String title, Type type, int id, LocalDateTime dateTime, String description, boolean appearsln) {
-        super( title, type, id, dateTime, description);
-        this.appearsln = appearsln;
-    }
-
-    private boolean appearsln;
 
 }
