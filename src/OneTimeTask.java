@@ -16,8 +16,8 @@ public class OneTimeTask extends Task{
                 '}';
     }
 
-    public OneTimeTask(int idGenerator, String title, Type type, int id, LocalDateTime dateTime, String description, boolean appearsln) {
-        super(idGenerator, title, type, id, dateTime, description);
+    public OneTimeTask(String title, Type type, int id, LocalDateTime dateTime, String description, boolean appearsln) {
+        super( title, type, id, dateTime, description);
         this.appearsln = appearsln;
     }
 

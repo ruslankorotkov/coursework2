@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Task extends TaskService{
     public enum Type{
@@ -13,9 +14,7 @@ public class Task extends TaskService{
         }
         @Override
         public String toString() {
-            return "Type{" +
-                    "type='" + type + '\'' +
-                    '}';
+            return  type ;
         }
     }
     private int idGenerator;
@@ -25,23 +24,28 @@ public class Task extends TaskService{
     private LocalDateTime dateTime;
     private String description;
 
-    public Task(int idGenerator, String title, Type type, int id, LocalDateTime dateTime, String description) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id && title.equals(task.title) && type == task.type && dateTime.equals(task.dateTime) && description.equals(task.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idGenerator, title, type, id, dateTime, description);
+    }
+
+    public Task( String title, Type type, int id, LocalDateTime dateTime, String description) {
         super();
-        this.idGenerator = idGenerator;
+        idGenerator ++;
         this.title = title;
         this.type = type;
         this.id = id;
         this.dateTime = dateTime;
         this.description = description;
     }
-    public int getIdGenerator() {
-        return idGenerator;
-    }
-
-    public void setIdGenerator(int idGenerator) {
-        this.idGenerator = idGenerator;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -54,16 +58,8 @@ public class Task extends TaskService{
         return type;
     }
 
-    public void setType(Type type) {
-        this.type = type;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public LocalDateTime getDateTime() {
@@ -76,6 +72,16 @@ public class Task extends TaskService{
 
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    public String toString() {
+        return " Задача: " +
+                ", id: " + id +
+                ", тип: " + type +
+                ", загаловок: " + title +
+                ", время: " + dateTime +
+                ", описание: " + description;
     }
 
     public void setDescription(String description) {

@@ -16,8 +16,8 @@ public class YearlyTask extends Task{
                 '}';
     }
 
-    public YearlyTask(int idGenerator, String title, Type type, int id, LocalDateTime dateTime, String description, boolean appearsln) {
-        super(idGenerator, title, type, id, dateTime, description);
+    public YearlyTask(String title, Type type, int id, LocalDateTime dateTime, String description, boolean appearsln) {
+        super( title, type, id, dateTime, description);
         this.appearsln = appearsln;
     }
 
