@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public abstract class Task extends TaskService {
-    private int idGenerator = 0;
+    private int idGenerator;
     private String title;
     private Type type;
     private int id;
@@ -38,6 +38,7 @@ public abstract class Task extends TaskService {
         this.type = type;
         this.id = id;
         this.dateTime = dateTime;
+        idGenerator ++;
     }
 
     public String getTitle() {
@@ -59,11 +60,6 @@ public abstract class Task extends TaskService {
     public LocalDateTime getDateTime() {
         return dateTime;
     }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -72,14 +68,12 @@ public abstract class Task extends TaskService {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "idGenerator=" + idGenerator +
-                ", title='" + title + '\'' +
-                ", type=" + type +
-                ", id=" + id +
-                ", dateTime=" + dateTime +
-                ", description='" + description + '\'' +
-                '}';
+        return " Задачи: " +
+                " id --> " + id +
+                " Заголовок --> " + title +
+                " тип --> " + type +
+                " время --> " + dateTime +
+                " описание --> " + description;
     }
 
     public void setDescription(String description) {
