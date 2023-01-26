@@ -20,7 +20,7 @@ public abstract class Task extends TaskService {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idGenerator, title, type, id, dateTime, description);
+        return Objects.hash(title, type, id, dateTime, description);
     }
 
     public Task(String title, Type type, int id, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
@@ -38,7 +38,7 @@ public abstract class Task extends TaskService {
         this.type = type;
         this.id = id;
         this.dateTime = dateTime;
-        idGenerator ++;
+        idGenerator++;
     }
 
     public String getTitle() {
@@ -60,6 +60,7 @@ public abstract class Task extends TaskService {
     public LocalDateTime getDateTime() {
         return dateTime;
     }
+
     public String getDescription() {
         return description;
     }
@@ -79,6 +80,4 @@ public abstract class Task extends TaskService {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
 }
