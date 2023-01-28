@@ -1,2 +1,2 @@
-public class TaskNotFoundException {
+public class TaskNotFoundException extends Throwable {
 }

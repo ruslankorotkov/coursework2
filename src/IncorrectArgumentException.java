@@ -1,5 +1,10 @@
-public class IncorrectArgumentException extends Throwable {
+public class IncorrectArgumentException extends Exception {
     private String argument;
+
+    public IncorrectArgumentException(String argument) {
+        super(argument);
+
+    }
 
     public String getArgument() {
         return argument;
@@ -10,10 +15,5 @@ public class IncorrectArgumentException extends Throwable {
         return "IncorrectArgumentException{" +
                 "argument='" + argument + '\'' +
                 '}';
-    }
-
-    public IncorrectArgumentException(String argument) {
-        super(argument);
-
     }
 }

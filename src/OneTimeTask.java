@@ -2,17 +2,17 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class OneTimeTask extends Task {
-
-
-    public OneTimeTask(String title, Type type, int id, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
-        super(title, type, id, dateTime, description);
+    public OneTimeTask(String title, Type type, LocalDateTime dateTime, String description) {
+        super(title, type, dateTime, description);
     }
 
     @Override
-    public boolean appearsln() {
-        if (LocalDate.now() == LocalDate.of(2023, 1, 26)) {
-        }
-        System.out.println(" Задача однократная ");
-        return true;
+    public boolean appearsln(LocalDate dateForChecking) {
+        return (dateForChecking.isAfter(getDateTime().toLocalDate()) || dateForChecking.isEqual(getDateTime().toLocalDate()));
+    }
+
+    @Override
+    public String toString() {
+        return "OneTimeTask " + super.toString();
     }
 }

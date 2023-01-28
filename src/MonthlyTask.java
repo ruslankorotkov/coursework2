@@ -4,16 +4,17 @@ import java.time.Month;
 import java.time.chrono.ChronoLocalDate;
 
 public class MonthlyTask extends Task {
-
-    public MonthlyTask(String title, Type type, int id, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
-        super(title, type, id, dateTime, description);
+    public MonthlyTask(String title, Type type, LocalDateTime dateTime, String description) {
+        super(title, type, dateTime, description);
     }
 
     @Override
-    public boolean appearsln() {
-        if (LocalDate.now().getMonth() == Month.of(1)) {
-            System.out.println(" Задача ежемесячная ");
-        }
-        return true;
+    public boolean appearsln(LocalDate dateForChecking) {
+        return (dateForChecking.isAfter(getDateTime().toLocalDate()) || dateForChecking.isEqual(getDateTime().toLocalDate()) && dateForChecking.getDayOfMonth() == getDateTime().getDayOfMonth());
+    }
+
+    @Override
+    public String toString() {
+        return "MonthlyTask " + super.toString();
     }
 }

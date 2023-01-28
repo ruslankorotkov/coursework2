@@ -1,20 +1,25 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Year;
+
 
 public class YearlyTask extends Task {
 
 
-    public YearlyTask(String title, Type type, int id, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
-        super(title, type, id, dateTime, description);
+    public YearlyTask(String title, Type type, LocalDateTime dateTime, String description) {
+        super(title, type, dateTime, description);
     }
 
 
     @Override
-    public boolean appearsln() {
+    public boolean appearsln(LocalDate dateForChecking) {
         if (LocalDate.now() == LocalDate.of(2023, 1, 26)) {
         }
         System.out.println(" Задача  ежегодная");
-        return true;
+        return (dateForChecking.isAfter(getDateTime().toLocalDate()) || dateForChecking.isEqual(getDateTime().toLocalDate()) && dateForChecking.getDayOfYear() == getDateTime().getDayOfYear());
+    }
+
+    @Override
+    public String toString() {
+        return "YearlyTask " + super.toString();
     }
 }

@@ -5,15 +5,17 @@ import java.time.Year;
 public class WeeklyTask extends Task {
 
 
-    public WeeklyTask(String title, Type type, int id, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
-        super(title, type, id, dateTime, description);
+    public WeeklyTask(String title, Type type, LocalDateTime dateTime, String description) {
+        super(title, type, dateTime, description);
     }
 
     @Override
-    public boolean appearsln() {
-        if (LocalDate.now() == LocalDate.of(2023, 1, 26)) {
-        }
-        System.out.println(" Задача еженедельная ");
-        return true;
+    public boolean appearsln(LocalDate dateForChecking) {
+        return (dateForChecking.isAfter(getDateTime().toLocalDate()) || dateForChecking.isEqual(getDateTime().toLocalDate()) && dateForChecking.getDayOfWeek() == getDateTime().getDayOfWeek());
+    }
+
+    @Override
+    public String toString() {
+        return "WeeklyTask " + super.toString();
     }
 }

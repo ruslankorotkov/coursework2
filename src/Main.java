@@ -1,29 +1,39 @@
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) throws IncorrectArgumentException {
         System.out.println(Arrays.toString(Type.values()));
-
-
-        DailyTask anton = new DailyTask(" Почистить зубы. ", Type.PERSONAL, 1, LocalDateTime.now(), " Тщательно почистить зубы. ");
-        OneTimeTask irina = new OneTimeTask(" Учить уроки. ", Type.WORK, 2, LocalDateTime.now(), " Изучение истории. ");
-        WeeklyTask vova = new WeeklyTask(" Учить детей. ", Type.WORK, 3, LocalDateTime.now(), " Учить детей чтению. ");
-        MonthlyTask lida = new MonthlyTask(" Выдавать зарплату. ", Type.WORK, 4, LocalDateTime.now(), " работать на кассе. ");
-        YearlyTask luka = new YearlyTask(" Праздновать рождество. ", Type.PERSONAL, 5, LocalDateTime.now(), " веселится. ");
+        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL,LocalDateTime.now(), " Чистка зубов. ");
+        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK,LocalDateTime.now(), " Изучение истории. ");
+        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK,LocalDateTime.now(), " Учить детей чтению. ");
+        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK,LocalDateTime.now(), " Работать на кассе. ");
+        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL,LocalDateTime.now(), " Праздновать Рождество. ");
         System.out.println(anton.toString());
         System.out.println(irina.toString());
         System.out.println(vova.toString());
         System.out.println(luka.toString());
         System.out.println(lida.toString());
-        System.out.println(anton.appearsln());
-        Scanner scanner = new Scanner(System.in);
-        String title;
-        do {
-            System.out.println(" Вы можете прервать комаду , набрав букву<А>");
-            title = scanner.nextLine();
-            System.out.println(" Можно вводить данные " + title);
-        } while (!title.equals("А"));
+        anton.getDescription();
+        anton.ex1();
+        anton.ex2();
+        List<Task> zD;
+        zD = new LinkedList<>();
+        zD.add(anton);
+        zD.add(lida);
+        zD.add(vova);
+        System.out.println(" Список задач: "+zD);
+
+//        System.out.println(anton.appearsln());
+//        Scanner scanner = new Scanner(System.in);
+//        String title;
+//        do {
+//            System.out.println(" Вы можете прервать комаду , набрав букву<А>");
+//            title = scanner.nextLine();
+//            System.out.println(" Можно вводить данные " + title);
+//        } while (!title.equals("А"));
     }
 }

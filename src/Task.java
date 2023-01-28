@@ -2,46 +2,28 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public abstract class Task{
-    private int idGenerator;
+public abstract class Task {
+    private static int idGenerator = 1;
     private String title;
     private Type type;
     private int id;
     private LocalDateTime dateTime;
     private String description;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        return id == task.id && title.equals(task.title) && type == task.type && dateTime.equals(task.dateTime) && description.equals(task.description);
+    public Task(String title, Type type, LocalDateTime dateTime, String description) {
+        this.title = title;
+        this.description = description;
+        this.type = type;
+        this.dateTime = dateTime;
+        this.id = idGenerator++;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(title, type, id, dateTime, description);
-    }
-
-    public Task(String title, Type type, int id, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
-        super();
+    public String getTitle() throws IncorrectArgumentException {
         if (title == null || title.isEmpty() || title.isBlank()) {
-            throw new IncorrectArgumentException(" Значение задачи введено не коректно.");
+            throw new IncorrectArgumentException(" Значение загаловка задачи не задано. ");
         } else {
             this.title = title;
         }
-        if (description == null || description.isEmpty() || description.isBlank()) {
-            this.description = " default ";
-        } else {
-            this.description = description;
-        }
-        this.type = type;
-        this.id = id;
-        this.dateTime = dateTime;
-        idGenerator++;
-    }
-
-    public String getTitle() {
         return title;
     }
 
@@ -61,11 +43,33 @@ public abstract class Task{
         return dateTime;
     }
 
-    public String getDescription() {
+    public String getDescription() throws IncorrectArgumentException {
+        if (description != null && !description.isEmpty() && !description.isBlank()) {
+            this.description = description;
+        } else {
+            throw new IncorrectArgumentException(" Значение описания задачи не задано. ");
+        }
         return description;
     }
 
-    public abstract boolean appearsln();
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public abstract boolean appearsln(LocalDate dateForChecking);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id && title.equals(task.title) && type == task.type && dateTime.equals(task.dateTime) && description.equals(task.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, type, id, dateTime, description);
+    }
 
     @Override
     public String toString() {
@@ -77,7 +81,22 @@ public abstract class Task{
                 " описание --> " + description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void ex1() {
+        System.out.println(" Поиск ошибки в заполнении заглавия задачи. ");
+        try {
+            getTitle();
+        } catch (IncorrectArgumentException e) {
+            System.out.println(" ОШИБКА поймана.  Значение загаловка задачи не задано. iD= " + getId());
+
+        }
+    }
+
+    public void ex2() {
+        System.out.println(" Поиск ошибки в заполнении описания задачи. ");
+        try {
+            getDescription();
+        } catch (IncorrectArgumentException e) {
+            System.out.println(" ОШИБКА поймана. Значение описания задачи не задано. iD=" + getId());
+        }
     }
 }
