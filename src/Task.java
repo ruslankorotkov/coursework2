@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public abstract class Task extends TaskService {
+public abstract class Task{
     private int idGenerator;
     private String title;
     private Type type;
