@@ -9,9 +9,6 @@ public class YearlyTask extends Task {
 
     @Override
     public boolean appearsln(LocalDate dateForChecking) {
-        if (LocalDate.now() == LocalDate.of(2023, 1, 26)) {
-        }
-        System.out.println(" Задача  ежегодная");
         return (dateForChecking.isAfter(getDateTime().toLocalDate()) || dateForChecking.isEqual(getDateTime().toLocalDate()) && dateForChecking.getDayOfYear() == getDateTime().getDayOfYear());
     }
 
