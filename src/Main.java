@@ -26,7 +26,6 @@ public class Main {
         zD.add(lida);
         zD.add(vova);
         System.out.println(" Список задач: "+zD);
-
 //        System.out.println(anton.appearsln());
 //        Scanner scanner = new Scanner(System.in);
 //        String title;
