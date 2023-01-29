@@ -17,9 +17,6 @@ public class Main {
         System.out.println(vova.toString());
         System.out.println(luka.toString());
         System.out.println(lida.toString());
-        anton.getDescription();
-        anton.ex1();
-        anton.ex2();
         List<Task> zD;
         zD = new LinkedList<>();
         zD.add(anton);

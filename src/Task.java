@@ -80,23 +80,4 @@ public abstract class Task {
                 " время --> " + dateTime +
                 " описание --> " + description;
     }
-
-    public void ex1() {
-        System.out.println(" Поиск ошибки в заполнении заглавия задачи. ");
-        try {
-            getTitle();
-        } catch (IncorrectArgumentException e) {
-            System.out.println(" ОШИБКА поймана.  Значение загаловка задачи не задано. iD= " + getId());
-
-        }
-    }
-
-    public void ex2() {
-        System.out.println(" Поиск ошибки в заполнении описания задачи. ");
-        try {
-            getDescription();
-        } catch (IncorrectArgumentException e) {
-            System.out.println(" ОШИБКА поймана. Значение описания задачи не задано. iD=" + getId());
-        }
-    }
 }
