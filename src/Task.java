@@ -97,6 +97,7 @@ public abstract class Task {
             getDescription();
         } catch (IncorrectArgumentException e) {
             System.out.println(" ОШИБКА поймана. Значение описания задачи не задано. iD=" + getId());
+
         }
     }
 }

@@ -17,15 +17,17 @@ public class TaskService {
         taskMap.remove(id);
         return null;
     }
+
     public List<Task> getAllByDate(LocalDate localDates) {
-        List<Task> taskList = new LinkedList<>();
-        for (Map.Entry<Integer,Task>entry : taskMap.entrySet()) {
-            if(entry.getValue() != null ){
-                taskList.add(entry.getValue());
+        List<Task> taskListAllByDate = new LinkedList<>();
+        for (Map.Entry<Integer, Task> entry : taskMap.entrySet()) {
+            if (entry.getValue() != null) {
+                taskListAllByDate.add(entry.getValue());
             }
         }
-        return taskList;
+        return taskListAllByDate;
     }
+
     @Override
     public String toString() {
         return "TaskService{" +

@@ -7,25 +7,25 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IncorrectArgumentException {
         System.out.println(Arrays.toString(Type.values()));
-        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL,LocalDateTime.of(2023,01,29,10,00), " Чистка зубов. ");
-        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK,LocalDateTime.of(2023,01,29,10,00), " Изучение истории. ");
-        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK,LocalDateTime.of(2023,01,29,10,00), " Учить детей чтению. ");
-        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK,LocalDateTime.of(2023,01,29,10,00), " Работать на кассе. ");
-        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL,LocalDateTime.of(2023,01,29,10,00), " Праздновать Рождество. ");
+        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL, LocalDateTime.now(), "  ");
+        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK, LocalDateTime.now(), " Изучение истории. ");
+        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK, LocalDateTime.now(), " Учить детей чтению. ");
+        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK, LocalDateTime.now(), " Работать на кассе. ");
+        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL, LocalDateTime.now(), " Праздновать Рождество. ");
         System.out.println(anton.toString());
         System.out.println(irina.toString());
         System.out.println(vova.toString());
         System.out.println(luka.toString());
         System.out.println(lida.toString());
         anton.getDescription();
-        anton.ex1();
-        anton.ex2();
+//        anton.ex1();
+//        anton.ex2();
         List<Task> zD;
         zD = new LinkedList<>();
         zD.add(anton);
         zD.add(lida);
         zD.add(vova);
-        System.out.println(" Список задач: "+zD);
+        System.out.println(" Список задач: " + zD);
 
 //        System.out.println(anton.appearsln());
 //        Scanner scanner = new Scanner(System.in);

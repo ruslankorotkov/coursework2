@@ -15,5 +15,6 @@ public class IncorrectArgumentException extends Exception {
         return "IncorrectArgumentException{" +
                 "argument='" + argument + '\'' +
                 '}';
+
     }
 }
