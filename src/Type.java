@@ -15,5 +15,4 @@ public enum Type {
     public String toString() {
         return type;
     }
-
 }

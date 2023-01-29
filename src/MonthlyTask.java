@@ -17,5 +17,4 @@ public class MonthlyTask extends Task {
     public String toString() {
         return "MonthlyTask " + super.toString();
     }
-
 }

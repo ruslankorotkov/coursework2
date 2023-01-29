@@ -15,5 +15,4 @@ public class DailyTask extends Task {
     public String toString() {
         return "DailyTask " + super.toString();
     }
-
 }

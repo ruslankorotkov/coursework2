@@ -7,7 +7,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IncorrectArgumentException {
         System.out.println(Arrays.toString(Type.values()));
-        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL, LocalDateTime.now(), "  ");
+        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL, LocalDateTime.now(), " Почистить зубы. ");
         OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK, LocalDateTime.now(), " Изучение истории. ");
         WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK, LocalDateTime.now(), " Учить детей чтению. ");
         MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK, LocalDateTime.now(), " Работать на кассе. ");
@@ -17,9 +17,6 @@ public class Main {
         System.out.println(vova.toString());
         System.out.println(luka.toString());
         System.out.println(lida.toString());
-        anton.getDescription();
-//        anton.ex1();
-//        anton.ex2();
         List<Task> zD;
         zD = new LinkedList<>();
         zD.add(anton);

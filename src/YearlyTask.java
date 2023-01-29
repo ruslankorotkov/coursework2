@@ -16,5 +16,4 @@ public class YearlyTask extends Task {
     public String toString() {
         return "YearlyTask " + super.toString();
     }
-
 }

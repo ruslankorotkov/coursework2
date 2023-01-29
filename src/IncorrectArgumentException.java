@@ -6,6 +6,7 @@ public class IncorrectArgumentException extends Exception {
 
     }
 
+
     public String getArgument() {
         return argument;
     }
@@ -15,6 +16,5 @@ public class IncorrectArgumentException extends Exception {
         return "IncorrectArgumentException{" +
                 "argument='" + argument + '\'' +
                 '}';
-
     }
 }
