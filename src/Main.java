@@ -35,7 +35,7 @@ public class Main {
         taskMap.put(4, luka);
         taskMap.put(5, vova);
         for (Map.Entry<Integer, Task> element : taskMap.entrySet()) {
-            System.out.println(" КЛЮЧ:" + element.getKey() + "ЗНАЧЕНИЕ: " + element.getValue());
+            System.out.println(" КЛЮЧ: " + element.getKey() + " ЗНАЧЕНИЕ: " + element.getValue());
             System.out.println(" Хешкод ключа " + element.getKey().hashCode() + " хешкод значения " + element.getValue().hashCode());
         }
         printSeparator();
@@ -44,7 +44,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String title;
         do {
-            System.out.println(" ПИШИТЕ /Вы можете прервать комаду , набрав русскую букву<А>");
+            System.out.println(" ПИШИТЕ / Вы можете прервать комаду , набрав русскую букву<А>");
             title = scanner.nextLine();
             System.out.println(" Можно вводить данные " + title);
         } while (!title.equals("А"));
