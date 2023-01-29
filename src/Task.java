@@ -73,7 +73,7 @@ public abstract class Task {
 
     @Override
     public String toString() {
-        return " Задачи: " +
+        return " Задача: " +
                 " id --> " + id +
                 " Заголовок --> " + title +
                 " тип --> " + type +

@@ -3,7 +3,7 @@ import java.util.*;
 
 public class TaskService {
 
-    private Map<Integer, Task> taskMap;
+    private Map<Integer, Task> taskMap = new HashMap<>();
     private List<Task> removedTasks = new LinkedList<>();
 
     public void add(Task task) {
@@ -35,5 +35,4 @@ public class TaskService {
                 ", removedTasks=" + removedTasks +
                 '}';
     }
-
 }
