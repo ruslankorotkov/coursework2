@@ -31,9 +31,9 @@ public class TaskService {
 
     @Override
     public String toString() {
-        return "TaskService{" +
-                "taskMap=" + taskMap +
-                ", removedTasks=" + removedTasks +
-                '}';
+        return " TaskService " +
+                " Мапа задач" + taskMap +
+                ", removedTasks=" + removedTasks;
+
     }
 }

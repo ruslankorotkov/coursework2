@@ -15,6 +15,5 @@ public class IncorrectArgumentException extends Exception {
 
     public IncorrectArgumentException(String argument) {
         super(argument);
-
     }
 }
