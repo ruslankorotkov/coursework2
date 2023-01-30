@@ -9,11 +9,35 @@ public class Main {
     }
 
     public static void main(String[] args) throws IncorrectArgumentException {
-        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL,LocalDateTime.of(2023,01,30,10,00), " Почистить зубы. ");
-        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK,LocalDateTime.of(2023,01,30,10,00), " Изучение истории. ");
-        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK,LocalDateTime.of(2023,01,30,10,00), " Учить детей чтению. ");
-        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK,LocalDateTime.of(2023,01,30,10,00), " Работать на кассе. ");
-        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL,LocalDateTime.of(2023,01,30,10,00), " Праздновать Рождество. ");
+        System.out.println(" Работает сканер ");
+        Scanner scanner = new Scanner(System.in);
+        String task;
+        System.out.println(" Можно вводить данные Класс задачи ");
+        task = scanner.nextLine();
+        System.out.println(" Можно вводить id задачи ");
+        int id = Integer.parseInt(scanner.nextLine());
+        String title;
+        System.out.println(" Можно вводить данные Заголовок задачи ");
+        title = scanner.nextLine();
+        System.out.println(" Заголовок задачи: " + title);
+        String description;
+        System.out.println(" Можно вводить данные Описание задачи ");
+        description = scanner.nextLine();
+        System.out.println(" Описание задачи: " + description);
+        Type type;
+        System.out.println(" Можно вводить данные Тип задачи ");
+        type = Type.valueOf(scanner.nextLine());
+        System.out.println(" Тип задачи: " + type);
+        LocalDateTime dateTime;
+        System.out.println(" Можно вводить данные Даты задачи ");
+        dateTime = LocalDateTime.now();
+        System.out.println(" Тип задачи: " + dateTime);
+        printSeparator();
+        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL, LocalDateTime.of(2023, 01, 30, 10, 00), " Почистить зубы. ");
+        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK, LocalDateTime.of(2023, 01, 30, 10, 00), " Изучение истории. ");
+        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK, LocalDateTime.of(2023, 01, 30, 10, 00), " Учить детей чтению. ");
+        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK, LocalDateTime.of(2023, 01, 30, 10, 00), " Работать на кассе. ");
+        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL, LocalDateTime.of(2023, 01, 30, 10, 00), " Праздновать Рождество. ");
         System.out.println(anton.toString());
         System.out.println(irina.toString());
         System.out.println(vova.toString());
@@ -40,13 +64,5 @@ public class Main {
         printSeparator();
         System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.ofYearDay(2023, 30)) + " " + anton.toString());
         printSeparator();
-
-//        Scanner scanner = new Scanner(System.in);
-//        String title;
-//        do {
-//            System.out.println(" ПИШИТЕ / Вы можете прервать комаду , набрав русскую букву<А>");
-//            title = scanner.nextLine();
-//            System.out.println(" Можно вводить данные " + title);
-//        } while (!title.equals("А"));
     }
 }
