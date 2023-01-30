@@ -9,7 +9,6 @@ public class Main {
     }
 
     public static void main(String[] args) throws IncorrectArgumentException {
-        System.out.println(Arrays.toString(Type.values()));
         DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL,LocalDateTime.of(2023,01,30,10,00), " Почистить зубы. ");
         OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK,LocalDateTime.of(2023,01,30,10,00), " Изучение истории. ");
         WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK,LocalDateTime.of(2023,01,30,10,00), " Учить детей чтению. ");

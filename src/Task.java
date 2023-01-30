@@ -11,27 +11,15 @@ public abstract class Task {
     private String description;
 
     public Task(String title, Type type, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
-        if (title == null || title.isEmpty() || title.isBlank()) {
-            throw new IncorrectArgumentException(" Значение загаловка задачи не задано. ");
-        } else {
-            this.title = title;
-        }
-        if (description != null && !description.isEmpty() && !description.isBlank()) {
-            this.description = description;
-        } else {
-            throw new IncorrectArgumentException(" Значение описания задачи не задано. ");
-        }
+        setTitle(title);
+        setDescription(description);
         this.type = type;
         this.dateTime = dateTime;
         this.id = idGenerator++;
     }
 
-    public String getTitle()  {
+    public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Type getType() {
@@ -50,8 +38,20 @@ public abstract class Task {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String description) throws IncorrectArgumentException {
+        if (description != null && !description.isEmpty() && !description.isBlank()) {
+            this.description = description;
+        } else {
+            throw new IncorrectArgumentException(" Значение описания ");
+        }
+    }
+
+    public void setTitle(String title) throws IncorrectArgumentException {
+        if (title == null || title.isEmpty() || title.isBlank()) {
+            throw new IncorrectArgumentException(" Значение загаловка ");
+        } else {
+            this.title = title;
+        }
     }
 
     public abstract boolean appearsln(LocalDate dateForChecking);
