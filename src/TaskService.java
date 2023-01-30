@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class TaskService {
@@ -11,17 +12,17 @@ public class TaskService {
     }
 
     public Task remove(int id) throws TaskNotFoundException {
-        if (!taskMap.containsKey(id) || taskMap.get(id) == null) {
+        if (!taskMap.containsKey(id)) {
             throw new TaskNotFoundException(" Ключа  <id> нет");
         }
         taskMap.remove(id);
-        return null;
+        return taskMap.remove(id);
     }
 
     public List<Task> getAllByDate(LocalDate localDates) {
         List<Task> taskListAllByDate = new LinkedList<>();
         for (Map.Entry<Integer, Task> entry : taskMap.entrySet()) {
-            if (entry.getValue() != null) {
+            if (entry.getValue().appearsln(LocalDate.now())) {
                 taskListAllByDate.add(entry.getValue());
             }
         }

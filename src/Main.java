@@ -10,11 +10,11 @@ public class Main {
 
     public static void main(String[] args) throws IncorrectArgumentException {
         System.out.println(Arrays.toString(Type.values()));
-        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL, LocalDateTime.now(), " Почистить зубы. ");
-        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK, LocalDateTime.now(), " Изучение истории. ");
-        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK, LocalDateTime.now(), " Учить детей чтению. ");
-        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK, LocalDateTime.now(), " Работать на кассе. ");
-        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL, LocalDateTime.now(), " Праздновать Рождество. ");
+        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL,LocalDateTime.of(2023,01,30,10,00), " Почистить зубы. ");
+        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK,LocalDateTime.of(2023,01,30,10,00), " Изучение истории. ");
+        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK,LocalDateTime.of(2023,01,30,10,00), " Учить детей чтению. ");
+        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK,LocalDateTime.of(2023,01,30,10,00), " Работать на кассе. ");
+        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL,LocalDateTime.of(2023,01,30,10,00), " Праздновать Рождество. ");
         System.out.println(anton.toString());
         System.out.println(irina.toString());
         System.out.println(vova.toString());
@@ -39,14 +39,15 @@ public class Main {
             System.out.println(" Хешкод ключа " + element.getKey().hashCode() + " хешкод значения " + element.getValue().hashCode());
         }
         printSeparator();
-        System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.ofYearDay(2023, 29)) + " " + anton.toString());
+        System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.ofYearDay(2023, 30)) + " " + anton.toString());
         printSeparator();
-        Scanner scanner = new Scanner(System.in);
-        String title;
-        do {
-            System.out.println(" ПИШИТЕ / Вы можете прервать комаду , набрав русскую букву<А>");
-            title = scanner.nextLine();
-            System.out.println(" Можно вводить данные " + title);
-        } while (!title.equals("А"));
+
+//        Scanner scanner = new Scanner(System.in);
+//        String title;
+//        do {
+//            System.out.println(" ПИШИТЕ / Вы можете прервать комаду , набрав русскую букву<А>");
+//            title = scanner.nextLine();
+//            System.out.println(" Можно вводить данные " + title);
+//        } while (!title.equals("А"));
     }
 }
