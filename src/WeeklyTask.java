@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import java.time.Year;
 
 public class WeeklyTask extends Task {
-    public WeeklyTask(String title, Type type, LocalDateTime dateTime, String description) {
+    public WeeklyTask(String title, Type type, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
         super(title, type, dateTime, description);
     }
 

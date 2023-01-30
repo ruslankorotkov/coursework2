@@ -10,20 +10,23 @@ public abstract class Task {
     private LocalDateTime dateTime;
     private String description;
 
-    public Task(String title, Type type, LocalDateTime dateTime, String description) {
-        this.title = title;
-        this.description = description;
-        this.type = type;
-        this.dateTime = dateTime;
-        this.id = idGenerator++;
-    }
-
-    public String getTitle() throws IncorrectArgumentException {
+    public Task(String title, Type type, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
         if (title == null || title.isEmpty() || title.isBlank()) {
             throw new IncorrectArgumentException(" Значение загаловка задачи не задано. ");
         } else {
             this.title = title;
         }
+        if (description != null && !description.isEmpty() && !description.isBlank()) {
+            this.description = description;
+        } else {
+            throw new IncorrectArgumentException(" Значение описания задачи не задано. ");
+        }
+        this.type = type;
+        this.dateTime = dateTime;
+        this.id = idGenerator++;
+    }
+
+    public String getTitle()  {
         return title;
     }
 
@@ -43,12 +46,7 @@ public abstract class Task {
         return dateTime;
     }
 
-    public String getDescription() throws IncorrectArgumentException {
-        if (description != null && !description.isEmpty() && !description.isBlank()) {
-            this.description = description;
-        } else {
-            throw new IncorrectArgumentException(" Значение описания задачи не задано. ");
-        }
+    public String getDescription() {
         return description;
     }
 

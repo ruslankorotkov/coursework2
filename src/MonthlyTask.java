@@ -4,7 +4,7 @@ import java.time.Month;
 import java.time.chrono.ChronoLocalDate;
 
 public class MonthlyTask extends Task {
-    public MonthlyTask(String title, Type type, LocalDateTime dateTime, String description) {
+    public MonthlyTask(String title, Type type, LocalDateTime dateTime, String description) throws IncorrectArgumentException {
         super(title, type, dateTime, description);
     }
 

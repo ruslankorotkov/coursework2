@@ -1,2 +1,10 @@
-public class TaskNotFoundException extends Throwable {
+public class TaskNotFoundException extends Exception {
+    @Override
+    public String toString() {
+        return "TaskNotFoundException{} " + super.toString();
+    }
+
+    public TaskNotFoundException(String message) {
+        super(message);
+    }
 }

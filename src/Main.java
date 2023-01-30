@@ -39,7 +39,7 @@ public class Main {
             System.out.println(" Хешкод ключа " + element.getKey().hashCode() + " хешкод значения " + element.getValue().hashCode());
         }
         printSeparator();
-        System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.now()) + " " + anton.toString());
+        System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.ofYearDay(2023, 29)) + " " + anton.toString());
         printSeparator();
         Scanner scanner = new Scanner(System.in);
         String title;

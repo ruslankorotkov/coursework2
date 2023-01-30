@@ -12,7 +12,7 @@ public class TaskService {
 
     public Task remove(int id) throws TaskNotFoundException {
         if (!taskMap.containsKey(id) || taskMap.get(id) == null) {
-            throw new TaskNotFoundException();
+            throw new TaskNotFoundException(" Ключа  <id> нет");
         }
         taskMap.remove(id);
         return null;
