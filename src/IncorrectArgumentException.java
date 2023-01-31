@@ -7,15 +7,17 @@ import java.util.stream.Stream;
 public class IncorrectArgumentException extends Exception {
     private String argument;
 
+    public String getArgument() {
+        return argument;
+    }
+
     public IncorrectArgumentException(String argument) {
         super(argument);
     }
 
     @Override
-    public String getMessage() {
-        return " Параметр " +
-                argument + " задан не коректно. ";
+    public String toString() {
+        return "Параметр " + super.getMessage() + argument +
+                " задан не коректно ";
     }
-
-
 }
