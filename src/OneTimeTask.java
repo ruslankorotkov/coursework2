@@ -8,7 +8,7 @@ public class OneTimeTask extends Task {
 
     @Override
     public boolean appearsln(LocalDate dateForChecking) {
-        return (dateForChecking.isAfter(getDateTime().toLocalDate()));
+        return (dateForChecking.isEqual(getDateTime().toLocalDate()));
     }
 
     @Override

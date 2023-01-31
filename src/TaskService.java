@@ -15,14 +15,13 @@ public class TaskService {
         if (!taskMap.containsKey(id)) {
             throw new TaskNotFoundException(" Ключа  <id> нет");
         }
-        taskMap.remove(id);
         return taskMap.remove(id);
     }
 
-    public List<Task> getAllByDate(LocalDate localDates) {
+    public List<Task> getAllByDate(LocalDate dateForChecking) {
         List<Task> taskListAllByDate = new LinkedList<>();
         for (Map.Entry<Integer, Task> entry : taskMap.entrySet()) {
-            if (entry.getValue().appearsln(LocalDate.now())) {
+            if (entry.getValue().appearsln(dateForChecking)) {
                 taskListAllByDate.add(entry.getValue());
             }
         }
