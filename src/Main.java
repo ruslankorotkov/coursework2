@@ -97,10 +97,13 @@ public class Main {
         Arrays.sort(words);
         System.out.println(" Слова отсортированы по алфавиту.");
         int grade = 1;
-        for (String word : words) {
-            System.out.println(grade + " " + word);
+        List<String> w = new LinkedList<>();
+        for (String element : words) {
+            w.add(element);
+            System.out.println(grade + " " + element);
         }
-        System.out.println("Output: В тексте " + words.length + " слов ");
+        System.out.println();
+        System.out.println("Output: В тексте " + w.size() + " слов ");
         yourapp.close();
 //        System.out.println(" Задача на функциональное программирование. Способ 2.");
 //        Scanner you = new Scanner(input).useDelimiter("\\s* \\s*");
