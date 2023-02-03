@@ -102,15 +102,17 @@ public class Main {
         }
         System.out.println("Output: В тексте " + words.length + " слов ");
         yourapp.close();
-//        Scanner yourapp = new Scanner(input).useDelimiter("\\s* \\s*");
+//        System.out.println(" Задача на функциональное программирование. Способ 2.");
+//        Scanner you = new Scanner(input).useDelimiter("\\s* \\s*");
 //        int count = 0;
-//        while (yourapp.hasNext()) {
+//        int iD = 1;
+//        while (you.hasNext()) {
 //            count++;
-//            if (yourapp.hasNext()) {
-//                System.out.println(" 1 - " + yourapp.next());
+//            if (you.hasNext()) {
+//                System.out.println(iD + " " + you.next());
 //            }
 //        }
 //        System.out.println("Output: В тексте " + count + " слов ");
-//        yourapp.close();
+//        you.close();
     }
 }
