@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.regex.MatchResult;
 
 
 public class Main {
@@ -94,13 +95,9 @@ public class Main {
         Scanner yourapp = new Scanner(input);
         String[] words = input.split("\\s+");
         Arrays.sort(words);
-        Set<String> w = new HashSet<>();
         System.out.println(" Слова отсортированы по алфавиту.");
         int grade = 1;
         for (String word : words) {
-            if (!w.add(word)) {
-                System.out.println(grade + grade + " " + word);
-            }
             System.out.println(grade + " " + word);
         }
         System.out.println("Output: В тексте " + words.length + " слов ");
