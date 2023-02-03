@@ -95,6 +95,7 @@ public class Main {
         Scanner yourapp = new Scanner(input);
         String[] words = input.split("\\s+");
         Arrays.sort(words);
+        System.out.println(" Слова отсортированы по алфавиту.");
         for (String word : words) {
             System.out.println("1 - " + word);
         }
