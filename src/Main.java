@@ -96,8 +96,9 @@ public class Main {
         String[] words = input.split("\\s+");
         Arrays.sort(words);
         System.out.println(" Слова отсортированы по алфавиту.");
+        int grade = 1;
         for (String word : words) {
-            System.out.println("1 - " + word);
+            System.out.println(grade + " " + word);
         }
         System.out.println("Output: В тексте " + words.length + " слов ");
         yourapp.close();
