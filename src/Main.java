@@ -40,45 +40,75 @@ public class Main {
             System.out.println(" Хешкод ключа " + element.getKey().hashCode() + " хешкод значения " + element.getValue().hashCode());
         }
         printSeparator();
-        System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.ofYearDay(2023, 111)) + " " + anton.toString());
+        System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.ofYearDay(2023, 34)) + " " + anton.toString());
         printSeparator();
 //        System.out.println(" Работает сканер ");
 //        Scanner scanner = new Scanner(System.in);
-//        String Task;
-//        System.out.println(" Можно вводить данные Класс задачи. ");
-//        Task = scanner.nextLine();
-//        System.out.println(" Класс задачи. ");
 //        System.out.println(" Можно вводить id задачи. ");
-//        int id = Integer.parseInt(scanner.nextLine());
-//        String title;
+//        if (scanner.hasNextInt()) {
+//            int id = scanner.nextInt();
+//            System.out.println("Спасибо! Вы ввели id: " + id);
+//        } else {
+//            System.out.println("Извините, но это явно не число. Перезапустите программу и попробуйте снова!");
+//        }
 //        System.out.println(" Можно вводить данные Заголовок задачи. ");
-//        title = scanner.nextLine();
-//        System.out.println(" Заголовок задачи: " + title);
-//        String description;
+//        if (scanner.hasNextLine()) {
+//            String title = scanner.next();
+//            System.out.println("Спасибо! Заголовок задачи: "+ title);
+//        } else {
+//            System.out.println("Извините, но это явно не строка. Перезапустите программу и попробуйте снова!");
+//        }
 //        System.out.println(" Можно вводить данные Описание задачи. ");
-//        description = scanner.nextLine();
-//        System.out.println(" Описание задачи: " + description);
-//        Type type;
+//        if (scanner.hasNextLine()) {
+//            String description = scanner.next();
+//            System.out.println("Спасибо! Описание задачи: "+ description);
+//        } else {
+//            System.out.println("Извините, но это явно не строка. Перезапустите программу и попробуйте снова!");
+//        }
+//        String type;
 //        System.out.println(" Можно вводить данные Тип задачи. ");
-//        type = Type.valueOf(scanner.nextLine());
+//        type = scanner.next();
 //        System.out.println(" Тип задачи: " + type);
 //        System.out.println(" Можно вводить данные Дата задачи. ");
-//        LocalDate dateTime = LocalDate.parse(scanner.nextLine());
-//        System.out.println(" Дата задачи: " + dateTime);
+//        String dateForChecking;
+//        dateForChecking = scanner.next();
+//        System.out.println(" Дата задачи: " + dateForChecking);
 //        scanner.close();
+//        printSeparator();
+//        Scanner scan = new Scanner("DailyTask antuan = new DailyTask(\" Задача ежедневная \", Type.PERSONAL, LocalDateTime.of(2023, 02, 02, 10, 00), \" Почистить туфли. \");'" +
+//                "OneTimeTask iren = new OneTimeTask(\" Задача однократная \", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), \" Изучение книги. \");'" +
+//                "WeeklyTask vovi = new WeeklyTask(\" Задача еженедельная \", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), \" Учить детей писать. \");'" +
+//                "MonthlyTask lide = new MonthlyTask(\" Задача ежемесячная \", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), \" Работать в метро. \");'" +
+//                "YearlyTask lukas = new YearlyTask(\" Задача  ежегодная \", Type.PERSONAL, LocalDateTime.of(2023, 02, 02, 10, 00), \" Праздновать День рождения. \");'");
+//
+//        scan.useDelimiter("'");
+//
+//        while (scan.hasNext()) {
+//            System.out.println(scan.next()+"");
+//        }
+//
+//        scan.close();
         printSeparator();
-        Scanner scan = new Scanner("DailyTask anton = new DailyTask(\" Задача ежедневная \", Type.PERSONAL, LocalDateTime.of(2023, 02, 02, 10, 00), \" Почистить зубы. \");'" +
-                "OneTimeTask irina = new OneTimeTask(\" Задача однократная \", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), \" Изучение истории. \");'" +
-                "WeeklyTask vova = new WeeklyTask(\" Задача еженедельная \", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), \" Учить детей чтению. \");'" +
-                "MonthlyTask lida = new MonthlyTask(\" Задача ежемесячная \", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), \" Работать на кассе. \");'" +
-                "YearlyTask luka = new YearlyTask(\" Задача  ежегодная \", Type.PERSONAL, LocalDateTime.of(2023, 02, 02, 10, 00), \" Праздновать Рождество. \");'");
-
-        scan.useDelimiter("'");
-
-        while (scan.hasNext()) {
-            System.out.println(scan.next());
+        System.out.println(" Задача на функциональное программирование. ");
+        System.out.println("Input: yourapp  the quick brown fox jumps over the lazy dog");
+        String input = "the quick brown fox jumps over the lazy dog";
+        Scanner yourapp = new Scanner(input);
+        String[] words = input.split("\\s+");
+        Arrays.sort(words);
+        for (String word : words) {
+            System.out.println("1 - " + word);
         }
-
-        scan.close();
+        System.out.println("Output: В тексте " + words.length + " слов ");
+        yourapp.close();
+//        Scanner yourapp = new Scanner(input).useDelimiter("\\s* \\s*");
+//        int count = 0;
+//        while (yourapp.hasNext()) {
+//            count++;
+//            if (yourapp.hasNext()) {
+//                System.out.println(" 1 - " + yourapp.next());
+//            }
+//        }
+//        System.out.println("Output: В тексте " + count + " слов ");
+//        yourapp.close();
     }
 }
