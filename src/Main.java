@@ -10,38 +10,38 @@ public class Main {
     }
 
     public static void main(String[] args) throws IncorrectArgumentException {
-        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL, LocalDateTime.of(2023, 02, 02, 10, 00), " Почистить зубы. ");
-        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), " Изучение истории. ");
-        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), " Учить детей чтению. ");
-        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), " Работать на кассе. ");
-        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL, LocalDateTime.of(2023, 02, 02, 10, 00), " Праздновать Рождество. ");
-        printSeparator();
-        System.out.println(anton.toString());
-        System.out.println(irina.toString());
-        System.out.println(vova.toString());
-        System.out.println(lida.toString());
-        System.out.println(luka.toString());
-        printSeparator();
-        List<Task> zD;
-        zD = new LinkedList<>();
-        zD.add(anton);
-        zD.add(lida);
-        zD.add(vova);
-        System.out.println(" Список задач: " + zD);
-        printSeparator();
-        Map<Integer, Task> taskMap = new HashMap<>();
-        taskMap.put(1, anton);
-        taskMap.put(2, irina);
-        taskMap.put(3, lida);
-        taskMap.put(4, luka);
-        taskMap.put(5, vova);
-        for (Map.Entry<Integer, Task> element : taskMap.entrySet()) {
-            System.out.println(" КЛЮЧ: " + element.getKey() + " ЗНАЧЕНИЕ: " + element.getValue());
-            System.out.println(" Хешкод ключа " + element.getKey().hashCode() + " хешкод значения " + element.getValue().hashCode());
-        }
-        printSeparator();
-        System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.ofYearDay(2023, 34)) + " " + anton.toString());
-        printSeparator();
+//        DailyTask anton = new DailyTask(" Задача ежедневная ", Type.PERSONAL, LocalDateTime.of(2023, 02, 02, 10, 00), " Почистить зубы. ");
+//        OneTimeTask irina = new OneTimeTask(" Задача однократная ", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), " Изучение истории. ");
+//        WeeklyTask vova = new WeeklyTask(" Задача еженедельная ", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), " Учить детей чтению. ");
+//        MonthlyTask lida = new MonthlyTask(" Задача ежемесячная ", Type.WORK, LocalDateTime.of(2023, 02, 02, 10, 00), " Работать на кассе. ");
+//        YearlyTask luka = new YearlyTask(" Задача  ежегодная", Type.PERSONAL, LocalDateTime.of(2023, 02, 02, 10, 00), " Праздновать Рождество. ");
+//        printSeparator();
+//        System.out.println(anton.toString());
+//        System.out.println(irina.toString());
+//        System.out.println(vova.toString());
+//        System.out.println(lida.toString());
+//        System.out.println(luka.toString());
+//        printSeparator();
+//        List<Task> zD;
+//        zD = new LinkedList<>();
+//        zD.add(anton);
+//        zD.add(lida);
+//        zD.add(vova);
+//        System.out.println(" Список задач: " + zD);
+//        printSeparator();
+//        Map<Integer, Task> taskMap = new HashMap<>();
+//        taskMap.put(1, anton);
+//        taskMap.put(2, irina);
+//        taskMap.put(3, lida);
+//        taskMap.put(4, luka);
+//        taskMap.put(5, vova);
+//        for (Map.Entry<Integer, Task> element : taskMap.entrySet()) {
+//            System.out.println(" КЛЮЧ: " + element.getKey() + " ЗНАЧЕНИЕ: " + element.getValue());
+//            System.out.println(" Хешкод ключа " + element.getKey().hashCode() + " хешкод значения " + element.getValue().hashCode());
+//        }
+//        printSeparator();
+//        System.out.println(" Задача задействована = " + anton.appearsln(LocalDate.ofYearDay(2023, 34)) + " " + anton.toString());
+//        printSeparator();
 //        System.out.println(" Работает сканер ");
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println(" Можно вводить id задачи. ");
@@ -90,32 +90,23 @@ public class Main {
 //        scan.close();
         printSeparator();
         System.out.println(" Задача на функциональное программирование. ");
-        System.out.println("Input: yourapp  the quick brown fox jumps over the lazy dog");
-        String input = "the quick brown fox jumps over the lazy dog";
-        Scanner yourapp = new Scanner(input);
+        System.out.println("Input: yourapp the quick brown fox jumps over the lazy dog");
+        String input = "yourapp the quick brown fox jumps over the lazy dog";
+        System.out.println(" Слова отсортированы по алфавиту и по количеству упоминаний.");
         String[] words = input.split("\\s+");
         Arrays.sort(words);
-        System.out.println(" Слова отсортированы по алфавиту.");
-        int grade = 1;
-        List<String> w = new LinkedList<>();
+        Map<String, Integer> w = new LinkedHashMap<>();
         for (String element : words) {
-            w.add(element);
-            System.out.println(grade + " " + element);
+            if (w.containsKey(element)) {
+                w.put(element, w.get(element) + 1);
+            } else {
+                w.put(element, 1);
+            }
         }
-        System.out.println();
         System.out.println("Output: В тексте " + w.size() + " слов ");
-        yourapp.close();
-//        System.out.println(" Задача на функциональное программирование. Способ 2.");
-//        Scanner you = new Scanner(input).useDelimiter("\\s* \\s*");
-//        int count = 0;
-//        int iD = 1;
-//        while (you.hasNext()) {
-//            count++;
-//            if (you.hasNext()) {
-//                System.out.println(iD + " " + you.next());
-//            }
-//        }
-//        System.out.println("Output: В тексте " + count + " слов ");
-//        you.close();
+        System.out.println(" TOP 10: ");
+        for (Map.Entry<String, Integer> element : w.entrySet()) {
+            System.out.println(element.getValue() + " " + element.getKey());
+        }
     }
 }
