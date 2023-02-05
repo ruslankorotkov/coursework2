@@ -111,7 +111,6 @@ public class Main {
                         },
                         LinkedHashMap::new
                 ));
-        sortedMap.entrySet().forEach(System.out::println);
         System.out.println("Output: В тексте " + w.size() + " слов ");
         System.out.println(" TOP 10: ");
         for (Map.Entry<String, Integer> element : sortedMap.entrySet()) {
