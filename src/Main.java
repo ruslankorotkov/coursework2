@@ -95,7 +95,7 @@ public class Main {
         System.out.println(" Слова отсортированы по алфавиту и по количеству упоминаний.");
         String[] words = input.split("\\s+");
         Arrays.sort(words);
-        Map<String, Integer> w = new LinkedHashMap<>();
+        Map<String, Integer> w = new LinkedHashMap<>(10);
         for (String element : words) {
             if (w.containsKey(element)) {
                 w.put(element, w.get(element) + 1);
