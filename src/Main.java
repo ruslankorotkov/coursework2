@@ -1,8 +1,6 @@
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.*;
-import java.util.regex.MatchResult;
 
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void printSeparator() {
@@ -103,9 +101,20 @@ public class Main {
                 w.put(element, 1);
             }
         }
+        Map<String, Integer> sortedMap = w.entrySet().stream()
+                .sorted(Comparator.comparingInt(e -> -e.getValue()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (a, b) -> {
+                            throw new AssertionError();
+                        },
+                        LinkedHashMap::new
+                ));
+        sortedMap.entrySet().forEach(System.out::println);
         System.out.println("Output: В тексте " + w.size() + " слов ");
         System.out.println(" TOP 10: ");
-        for (Map.Entry<String, Integer> element : w.entrySet()) {
+        for (Map.Entry<String, Integer> element : sortedMap.entrySet()) {
             System.out.println(element.getValue() + " " + element.getKey());
         }
     }
